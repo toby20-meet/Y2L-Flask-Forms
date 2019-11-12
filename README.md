@@ -4,7 +4,7 @@ Today, we are continuing creating <b>our awesome online shop!</b>
 Remember, never stop your <b>creativity</b>. Keep it going!
 <br/>
 
-Firstly, <b>Clone</b> https://github.com/<Your Username>/Y2L-Flask-Routing to your Desktop if you don't have it, and open the folder.
+Firstly, <b>Clone</b> https://github.com/Your-Username/Y2L-Flask-Routing to your Desktop if you don't have it, and open the folder.
 <br/>
 
 You can also use Today's lecture as reference if you forgot certain lines - https://tinyurl.com/flask-forms
@@ -20,9 +20,9 @@ In store.html:
 it adds the selected product to the Cart table. 
 (Hint: Use "add_to_cart()" function from the previous lab)
 </br>
-In cart.html:
+In cart.html:</br>
 3. Display products that were added to cart directly from the database.
-
+</br>
 4. Add a simple "Pay Now" button.
 
 ## Part 2: Creating Our Admin Portal
