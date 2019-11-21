@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet"> 
+	<style type="text/css">
+		body{
+    font-family: 'Raleway', sans-serif;
+		}
+		h1{
+			margin-top: 10%;
+			text-decoration: underline;
+		}
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #738196;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 200px;
+  margin: auto;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+	</style>
+</head>
+<body>
+
+<center><h1> Welcome to Spiderma... eh I mean Toby's Website! </h1>
+	<br>
+<a class="card" href="{{ url_for('store') }}"><p><button>My Store</button></p></a>
+</div>
+
+<br>
+<a class="card" href="{{ url_for('about') }}"><p><button>About Me</button></p></a>
+</center>
+</body>
+</html>
