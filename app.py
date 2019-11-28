@@ -4,6 +4,7 @@ from databases import *
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'super-secret-key'
 app.secret_key = "MY_SUPER_SECRET_KEY"
 
 
@@ -12,9 +13,10 @@ app.secret_key = "MY_SUPER_SECRET_KEY"
 def home():
 	return render_template("home.html")
 
-@app.route('/store')
+@app.route('/store', methods = ['GET','POST'])
 def store():
 	if request.method == 'POST':
+		submition = int(request.form['product_id'])
 		databases.Add_To_Cart(submition)
 	product_names = allofthem()
 	return render_template("store.html",pn = product_names)
@@ -23,10 +25,10 @@ def store():
 def about():
 	return render_template('about.html')
 
-@app.route('/cart/<String>')
+@app.route('/cart')
 def cart(String):
-	Add_To_Cart(String)
-	return render_template('cart.html')
+	products_added = all_in_cart()
+	return render_template('cart.html',pd = products_added)
 #####################
 
 

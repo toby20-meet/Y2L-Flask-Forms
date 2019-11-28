@@ -63,7 +63,11 @@ img{
   <h1>{{i.name}}</h1>
   <p class="price">{{i.price}}$</p>
   <p>{{i.description}}</p>
-  <a href="{{ url_for('cart', String = 'toby') }}"><p><form action="/store"  method="POST"><button name="submition">Add to Cart</button></form></p></a>
+  <a href="{{ url_for('cart', String = 'toby') }}"><p>
+    <form action="/store"  method="POST">
+      <input type="hidden" name="product_id" value='{{i.Id}}'>
+      <button type="submit">Add to Cart</button>
+    </form></p></a>
 </div>
 
 </div>
