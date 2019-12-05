@@ -35,7 +35,7 @@ def allofthem():
 
 def bringProduct(product_id):
 	session = run_therm()
-	return session.query(Product).filter_by(Id = product_id)
+	return session.query(Product).filter_by(Id = product_id).first()
 
 def Add_To_Cart(productID):
 	session = run_therm()

@@ -17,7 +17,7 @@ def home():
 def store():
 	if request.method == 'POST':
 		submition = int(request.form['product_id'])
-		databases.Add_To_Cart(submition)
+		Add_To_Cart(submition)
 	product_names = allofthem()
 	return render_template("store.html",pn = product_names)
 
@@ -26,9 +26,29 @@ def about():
 	return render_template('about.html')
 
 @app.route('/cart')
-def cart(String):
+def cart():
 	products_added = all_in_cart()
-	return render_template('cart.html',pd = products_added)
+	sending = []
+	for i in products_added:
+		sending.append(bringProduct(i.productID))
+	return render_template('cart.html',pd = sending)
+
+@app.route('/portal')
+def portal():
+	return render_template('portal.html')
+
+@app.route('/login', methods = ['POST','GET'])
+def login():
+	usernames = ['Toby']
+	passwords = ['20']
+	if request.method == 'POST':
+		entered_name = request.form['username']
+		entered_password = request.form['password']
+		if(entered_name in usernames and entered_password in passwords):
+			return redirect(url_for("portal"))
+
+	return render_template('login.html')
+
 #####################
 
 

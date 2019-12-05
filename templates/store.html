@@ -65,7 +65,7 @@ img{
   <p>{{i.description}}</p>
   <a href="{{ url_for('cart', String = 'toby') }}"><p>
     <form action="/store"  method="POST">
-      <input type="hidden" name="product_id" value='{{i.Id}}'>
+      <input type="hidden" name="product_id" value="{{i.Id}}">
       <button type="submit">Add to Cart</button>
     </form></p></a>
 </div>
@@ -73,6 +73,7 @@ img{
 </div>
 {%endfor%}
 </div>
+<a class="card" href="{{ url_for('cart') }}"><p><button>My Cart</button></p></a>
 
 <a href="{{ url_for('home') }}">Home</a>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
