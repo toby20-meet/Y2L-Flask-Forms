@@ -1,9 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet"> 
 	<title></title>
+	<style>
+body{
+    font-family: 'Raleway', sans-serif;
+}
+h1{
+	margin-top: 2%;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+	font-family: 'Raleway', sans-serif;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #738196;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+img{
+	border-style: solid;
+	border-radius: 0.2px;
+	border-color: #738196;
+}
+.row{
+	margin-top: 5%;
+}
+</style>
 </head>
 <body>
+	<div>
+		<div class="row">
+			<div class="col-3"></div>
+			<div class="col-3"> <h3> Commands </h3> </div>
+			<div class="col-6"> <h3> Product </h3> </div>
+		</div>
 
+		{%for i in pn %}
+		<div class="row">
+		<div class="col-3"></div>
+		<div class="col-3">
+			<h3>Edit Product</h3>
+			<br>
+			<form action="/portal" method="POST" style="margin-left: 20px">
+				<select name="types">
+					<option value="name">Name</option>
+					<option value="price">Price</option>
+					<option value="picture_link">Image Link</option>
+					<option value="description">Description</option>
+				</select>
+				<br>
+				<br>
+				<input type="text" name="new_value" placeholder="New Value">
+				<br>
+				<br>
+				<br>
+				<input type="hidden" name="product_id" value="{{i.Id}}">
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		<div class="col-6">
+			<div class="card">
+  				<img src={{i.picture_link}} alt="Denim Jeans" style="width:100%">
+  			<h1>{{i.name}}</h1>
+  			<p class="price">{{i.price}}$</p>
+  			<p>{{i.description}}</p>
+		</div>
+		</div>
+		</div>
+		{%endfor%}
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

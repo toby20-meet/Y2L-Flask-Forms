@@ -20,7 +20,7 @@ def addProduct(product_name,product_price,picture_link,product_description):
 def editProduct(product_id,change_var,new_vlaue):
 	session = run_therm()
 	product_object = session.query(Product).filter_by(Id = product_id).first()
-	setattr(product_object,'price',0.00)
+	setattr(product_object,change_var,new_vlaue)
 	session.commit()
 
 def delProduct(product_id):

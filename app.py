@@ -33,9 +33,15 @@ def cart():
 		sending.append(bringProduct(i.productID))
 	return render_template('cart.html',pd = sending)
 
-@app.route('/portal')
+@app.route('/portal', methods = ['POST','GET'])
 def portal():
-	return render_template('portal.html')
+	if request.method == 'POST':
+		change_type = request.form['types']
+		new_value = request.form['new_value']
+		product_id = request.form['product_id']
+		editProduct(product_id,change_type,new_value)
+	product_names = allofthem()
+	return render_template('portal.html',pn = product_names)
 
 @app.route('/login', methods = ['POST','GET'])
 def login():
